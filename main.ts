@@ -6,5 +6,10 @@ const TEXT =
   "Outside, the street is quiet. The moth is not going anywhere. " +
   "Neither, for a moment, are you.";
 
+const CODE_POINTS = [...TEXT].length;
+if (CODE_POINTS < 1 || CODE_POINTS > 280) {
+  throw new Error(`entry must be 1-280 code points, got ${CODE_POINTS}`);
+}
+
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", TEXT, "utf8");
